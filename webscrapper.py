@@ -92,7 +92,7 @@ class Client:
         data = data_len.to_bytes(10, byteorder='big') + self.url.encode('utf-8')
         sock.sendall(data)
         responce = self.recv_all(sock)
-        img_count, p_count = responce.split(",")
+        p_count, img_count = responce.split(",")
         print(f"The number of images at {self.url} is equal to {img_count}, the number of leaf paragraphs is equal {p_count}")
         sock.close()
 
